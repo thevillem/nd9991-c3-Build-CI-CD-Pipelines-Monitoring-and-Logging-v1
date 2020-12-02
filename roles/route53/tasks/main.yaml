@@ -1,8 +1,8 @@
 - name: change route53
   route53:
     state: present
-    zone: wread.com
-    record: www.wread.com
+    zone: test.com
+    record: www.test.com
     failover: SECONDARY
     type: CNAME
     ttl: 30
@@ -11,4 +11,4 @@
     overwrite: yes
     value: "{{ NEW_ALIAS }}"
     wait: yes
-    health_check: "7308e6b5-87a4-4d5f-a630-6d125e869349"
+    health_check: "1bd8ac59-6530-4862-834f-80755b5dcd00"
