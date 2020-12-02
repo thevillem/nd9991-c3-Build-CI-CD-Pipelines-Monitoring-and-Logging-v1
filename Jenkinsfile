@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Lint HTML') {
             when {
-                branch 'Staging' 
+                branch 'Development' 
             }
             steps {
                 sh 'tidy -q -e *.html'
