@@ -2,6 +2,9 @@ pipeline {
     agent any
     stages {
         stage('Build') {
+            when {
+                branch 'Development' 
+            }
             steps {
                 sh 'echo "Hello World"'
                 sh '''
@@ -12,7 +15,7 @@ pipeline {
         }
         stage('Lint HTML') {
             when {
-                branch 'Development' 
+                branch 'Staging' 
             }
             steps {
                 sh 'tidy -q -e *.html'
@@ -20,7 +23,7 @@ pipeline {
         }
         stage('Security Scan') {
             when {
-                branch 'Development' 
+                branch 'Staging' 
             }
             steps { 
                 aquaMicroscanner imageName: 'alpine:latest', notCompleted: 'exit 1', onDisallowed: 'fail'
